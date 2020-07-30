@@ -12,5 +12,5 @@ cloned project directory
 ```
 
 
-### list-emoji-text-github-dependency-demo
-in progress
+### text-typing-conversion-github-repository-dependency-demo
+coming soon

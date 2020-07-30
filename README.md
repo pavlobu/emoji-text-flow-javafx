@@ -15,6 +15,7 @@ Example code is in:
 `src/main/java/ExampleJavaFXEmojiTextFlow.java`
 
 ### Dependency gradle local downloaded .jar files:
+First you need to get `.jar` file with EmojiTextFlow from releases, here on github
 (NOTE: following configuration is from `build.gradle` of `emoji-text-flow-demos/list-emoji-text-flow-local-libs-demo` demo project )
 1. put your .jar in root `libs` directory of your javafx project.
 2. add/change your build.gradle to have these lines:
