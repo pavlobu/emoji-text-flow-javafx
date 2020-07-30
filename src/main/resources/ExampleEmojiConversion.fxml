@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
+
+
+<?import com.pavlobu.emojitextflow.EmojiTextFlow?>
+<?import javafx.scene.control.ListView?>
+<VBox fx:controller="EmojiTextConversionController" prefHeight="212.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <EmojiTextFlow fx:id="flowOutput" prefHeight="200.0" prefWidth="200.0" />
+        <TextArea fx:id="txtInput" prefHeight="200.0" prefWidth="200.0" />
+    </children>
+</VBox>

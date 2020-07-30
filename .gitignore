@@ -1,0 +1,25 @@
+.idea
+**/.DS_Store
+
+# ignore images in resources emoji_images folder as they are
+# copied here on each gradle task
+# (see copyEmojiImagesFiles task inbuild.gradle)
+src/main/resources/emoji_images/*
+
+emoji-text-flow-demos/list-emoji-text-flow-local-libs-demo/build
+emoji-text-flow-demos/list-emoji-text-flow-local-libs-demo/.idea
+emoji-text-flow-demos/list-emoji-text-flow-local-libs-demo/.gradle
+
+
+.gradle
+**/build/
+!src/**/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache

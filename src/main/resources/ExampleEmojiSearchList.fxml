@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EmojiSearchListController">
+    <children>
+        <HBox spacing="5.0">
+            <children>
+                <TextField fx:id="txtSearch" focusTraversable="false" promptText="Search emoji" HBox.hgrow="ALWAYS" />
+                <ComboBox fx:id="boxTone" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="51.0" />
+            </children>
+        </HBox>
+        <AnchorPane VBox.vgrow="ALWAYS">
+            <children>
+                <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" side="BOTTOM" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <tabs>
+                        <Tab text="Frequently Used">
+                            <content>
+                                <ScrollPane>
+                                    <content>
+                                        <FlowPane />
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                        <Tab text="People">
+                            <content>
+                                <ScrollPane>
+                                    <content>
+                                        <FlowPane />
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Nature">
+                            <content>
+                                <ScrollPane>
+                                    <content>
+                                        <FlowPane />
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Food">
+                            <content>
+                                <ScrollPane>
+                                    <content>
+                                        <FlowPane />
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Activity">
+                            <content>
+                                <ScrollPane>
+                                    <content>
+                                        <FlowPane />
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Travel">
+                            <content>
+                                <ScrollPane>
+                                    <content>
+                                        <FlowPane />
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Objects">
+                            <content>
+                                <ScrollPane>
+                                    <content>
+                                        <FlowPane />
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Symbols">
+                            <content>
+                                <ScrollPane>
+                                    <content>
+                                        <FlowPane />
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Flags">
+                            <content>
+                                <ScrollPane>
+                                    <content>
+                                        <FlowPane />
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Regional">
+                            <content>
+                                <ScrollPane>
+                                    <content>
+                                        <FlowPane />
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Extras">
+                            <content>
+                                <ScrollPane>
+                                    <content>
+                                        <FlowPane />
+                                    </content>
+                                </ScrollPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+                <ScrollPane fx:id="searchScrollPane" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <content>
+                        <FlowPane fx:id="searchFlowPane" />
+                    </content>
+                </ScrollPane>
+            </children>
+        </AnchorPane>
+    </children>
+</VBox>

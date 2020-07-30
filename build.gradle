@@ -1,0 +1,109 @@
+plugins {
+    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
+}
+
+group 'JavaFXEmojiTextFLow'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+javafx {
+    version = '12'
+    modules = ['javafx.controls', 'javafx.fxml']
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.sharegov/mjson
+    compile group: 'org.sharegov', name: 'mjson', version: '1.3'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+// create a single Jar with all dependencies and emoji_images folder
+// images are copied from emoji_images/${gradle.ext.emojiImagesPath} where
+// gradle.ext.emojiImagesPath is specified in settings.gradle
+// this allows to run `./gradlew buildJar` to compile a jar with this project
+task buildJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'EmojiTextFlow with ' + gradle.emojiImagesPath + ' images',
+                'Implementation-Version': version
+    }
+    archiveBaseName = project.name + '_' + gradle.emojiImagesPath
+    with jar
+}
+
+sourceSets {
+    // exclude unnecessary files from jar, otherwise they are used to run examples
+    if (project.gradle.startParameter.taskNames.contains("buildJar")) {
+        main {
+            java {
+                exclude '*.java'
+            }
+            resources {
+                exclude '*.fxml'
+            }
+        }
+    }
+}
+
+task oldExampleEmojiSearch(type: JavaExec) {
+    description = "Run emoji search by alias and show them in interactive list"
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs = ['--module-path', classpath.asPath,
+               '--add-modules', 'javafx.controls',
+               '--add-modules', 'javafx.fxml']
+    main = 'EmojiSearchListExample'
+}
+
+task exampleTypingTextConversion(type: JavaExec) {
+    description = "Run real time input text conversion -> to text with emoji images"
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs = ['--module-path', classpath.asPath,
+               '--add-modules', 'javafx.controls',
+               '--add-modules', 'javafx.fxml']
+    main = 'EmojiTextConversionExample'
+}
+
+task exampleEmojiTextFlowWithListView(type: JavaExec) {
+    description = "Run example with text input and hit enter to show emoji with text in list"
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs = ['--module-path', classpath.asPath,
+               '--add-modules', 'javafx.controls',
+               '--add-modules', 'javafx.fxml']
+    main = 'ExampleJavaFXEmojiTextFlow'
+}
+
+// copy user-specified emoji images to resources path
+// you can change emojiImagesPath in settings.gradle
+task copyEmojiImagesFiles(type: Copy) {
+    from 'emoji_images/' + gradle.emojiImagesPath
+    into 'src/main/resources/emoji_images'
+}
+
+task deleteEmojiImagesFiles(type: Delete) {
+    delete 'src/main/resources/emoji_images/*'
+    followSymlinks = true
+}
+
+// make gradle tasks copy right emoji image folder
+// to resources folder before run
+buildJar.mustRunAfter(copyEmojiImagesFiles)
+buildJar.dependsOn(copyEmojiImagesFiles)
+
+oldExampleEmojiSearch.mustRunAfter(copyEmojiImagesFiles)
+oldExampleEmojiSearch.dependsOn(copyEmojiImagesFiles)
+
+exampleTypingTextConversion.mustRunAfter(copyEmojiImagesFiles)
+exampleTypingTextConversion.dependsOn(copyEmojiImagesFiles)
+
+exampleEmojiTextFlowWithListView.mustRunAfter(copyEmojiImagesFiles)
+exampleEmojiTextFlowWithListView.dependsOn(copyEmojiImagesFiles)
