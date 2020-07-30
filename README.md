@@ -14,6 +14,37 @@ See demo GIFs with examples under `doc/img`
 Example code is in:
 `src/main/java/ExampleJavaFXEmojiTextFlow.java`
 
+### Dependency gradle local downloaded .jar files:
+(NOTE: following configuration is from `build.gradle` of `emoji-text-flow-demos/list-emoji-text-flow-local-libs-demo` demo project )
+1. put your .jar in root `libs` directory of your javafx project.
+2. add/change your build.gradle to have these lines:
+
+```groovy
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    //// MUST INCLUDE THESE DEPENDENCIES START
+//    implementation name: 'JavaFXEmojiTextFlow_emojitwo-1.0'
+//    implementation name: 'JavaFXEmojiTextFlow_openmoji-1.0'
+    implementation name: 'JavaFXEmojiTextFlow_twemoji-1.0'
+
+    // https://mvnrepository.com/artifact/org.sharegov/mjson
+    compile group: 'org.sharegov', name: 'mjson', version: '1.3'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+    //// MUST INCLUDE THESE DEPENDENCIES END
+    // ... your other dependencies
+}
+```
+
+
 run this example with:
 ```bash
 ./gradlew exampleEmojiTextFlowWithListView

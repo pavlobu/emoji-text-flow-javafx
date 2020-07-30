@@ -1,6 +1,6 @@
-//gradle.ext.emojiImagesPath = 'emojitwo' // use emojitwo images
+gradle.ext.emojiImagesPath = 'emojitwo' // use emojitwo images
 // NOTE: example of use different image sets, leave uncommented only one gradle.ext.emojiImagesPath !!
 //gradle.ext.emojiImagesPath = 'openmoji' // use openmoji images
-gradle.ext.emojiImagesPath = 'twemoji' // use twemoji images
+//gradle.ext.emojiImagesPath = 'twemoji' // use twemoji images
 
 rootProject.name = 'JavaFXEmojiTextFlow'
