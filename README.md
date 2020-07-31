@@ -119,5 +119,10 @@ You can create your own emoji pack with
 only few of emoji .png images and recompile it by yourself. 
 It will dramatically reduce `.jar` file size.
 
+### Legal:
+```
+Copyright (c) 2016 MK Hejazy MIT License
+```
+
 ### Credits:
 https://github.com/UltimateZero/EmojiOneJava
